@@ -15,4 +15,14 @@ function randomInt(maxVal) {
 
 function copyHex() {
   navigator.clipboard.writeText(color);
+  //visible the message div
+  let message_div = document.getElementById("message-div");
+  message_div.style.visibility = "visible";
+  //add animation class
+  message_div.classList.add("animate__animated", "animate__bounce");
+  //fire timeout function, when timeout hide the message
+  setTimeout(function () {
+    message_div.classList.remove("animate__animated", "animate__bounce");
+    message_div.style.visibility = "hidden";
+  }, 1000);
 }
