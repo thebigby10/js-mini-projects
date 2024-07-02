@@ -1,19 +1,18 @@
-let states = ["red", "green", "blue"];
+let color = `rgb(255, 255, 255)`;
 function changeColor() {
-  //get current background color
-  let current_state =
-    document.getElementsByTagName("body")[0].style.backgroundColor;
-  console.log(current_state);
-  //check the color index from states and change to next state
-  for (let i = 0; i < 3; i++) {
-    if (states[i] == current_state) {
-      if (i == 2) {
-        document.getElementsByTagName("body")[0].style.backgroundColor =
-          states[0];
-      } else {
-        document.getElementsByTagName("body")[0].style.backgroundColor =
-          states[i + 1];
-      }
-    }
-  }
+  let r = randomInt(255),
+    g = randomInt(255),
+    b = randomInt(255);
+  color = `rgb(${r}, ${g}, ${b})`;
+  color = document.getElementsByTagName("body")[0].style.backgroundColor =
+    `rgb(${r}, ${g}, ${b})`;
+  document.getElementById("color-code-field").value = `rgb(${r}, ${g}, ${b})`;
+}
+
+function randomInt(maxVal) {
+  return Math.floor(Math.random() * maxVal);
+}
+
+function copyHex() {
+  navigator.clipboard.writeText(color);
 }

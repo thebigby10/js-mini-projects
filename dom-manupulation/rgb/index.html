@@ -13,16 +13,27 @@
     </head>
     <body
         style="
-            background-color: red;
+            background-color: white;
             position: absolute;
-            top: 40%;
-            left: 40%;
+            top: 30%;
+            left: 35%;
             text-align: center;
         "
     >
-        <p>RGB BUTTON</p>
-        <button onclick="changeColor()" style="background-color: white">
-            Change Color
-        </button>
+        <div>
+            <h3>RGB BUTTON</h3>
+        </div>
+        <div>
+            <input
+                type="text"
+                value=""
+                id="color-code-field"
+                placeholder="rgb(255,255,255)"
+                style="text-align: center"
+                readonly
+            />
+        </div>
+        <button onclick="changeColor()">Change Color</button>
+        <button onclick="copyHex()">Copy Hex</button>
     </body>
 </html>
