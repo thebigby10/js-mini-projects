@@ -33,11 +33,17 @@ function filterTask() {
   console.log("filter-task?");
 }
 function clearTask() {
-  console.log("clear-task?");
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i] != "-1") {
+      let list_item = document.getElementById(`task-li-${i}`);
+      taskList[i] = "-1";
+      list_item.parentNode.removeChild(list_item);
+    }
+  }
 }
 
 function removeTask(taskNumber) {
   let list_item = document.getElementById(`task-li-${taskNumber}`);
-  taskList[taskNumber] = "";
+  taskList[taskNumber] = "-1";
   list_item.parentNode.removeChild(list_item);
 }
