@@ -5,6 +5,9 @@ document
   .getElementById("task-filter-input")
   .addEventListener("keydown", filterTask);
 document
+  .getElementById("task-filter-input")
+  .addEventListener("keyup", filterTask);
+document
   .getElementById("clear-task-button")
   .addEventListener("click", clearTask);
 
@@ -30,7 +33,35 @@ function addTask() {
   task_list_ol.appendChild(task_list_li);
 }
 function filterTask() {
-  console.log("filter-task?");
+  let task_name = document.getElementById("task-filter-input").value;
+  // console.log(task_name.length);
+  let filteredTask = [...taskList];
+  // console.log(filteredTask[0].includes(task_name));
+  if (task_name.length != 0) {
+    //filter tasks
+    for (let i = 0; i < filteredTask.length; i++) {
+      if (!filteredTask[i].includes(task_name)) {
+        filteredTask[i] = "-1";
+        // console.log(filteredTask[i]);
+      }
+    }
+  }
+  //show filteredTask list
+  //remove all tasks from ol
+  let task_list_ol = document.getElementById("task-list-ol");
+  for (let i = task_list_ol.childNodes.length - 1; i >= 0; i--) {
+    task_list_ol.removeChild(task_list_ol.childNodes[i]);
+  }
+  //add filteredTask to ol
+  // console.log(filteredTask);
+  for (let i = 0; i < filteredTask.length; i++) {
+    if (filteredTask[i] != "-1") {
+      let task_list_li = document.createElement("li");
+      task_list_li.id = `task-li-${i}`;
+      task_list_li.innerHTML = `${filteredTask[i]} <button onclick = "removeTask(${i})">Remove task</button>`;
+      task_list_ol.appendChild(task_list_li);
+    }
+  }
 }
 function clearTask() {
   for (let i = 0; i < taskList.length; i++) {
