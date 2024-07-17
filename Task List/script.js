@@ -31,6 +31,8 @@ function addTask() {
   task_list_li.id = `task-li-${i}`;
   task_list_li.innerHTML = `${task_title} <button onclick = "removeTask(${i})">Remove task</button>`;
   task_list_ol.appendChild(task_list_li);
+  //store locally
+  localStorage.setItem("taskList_data", JSON.stringify(taskList));
 }
 function filterTask() {
   let task_name = document.getElementById("task-filter-input").value;
@@ -71,10 +73,29 @@ function clearTask() {
       list_item.parentNode.removeChild(list_item);
     }
   }
+  localStorage.setItem("taskList_data", null);
 }
 
 function removeTask(taskNumber) {
   let list_item = document.getElementById(`task-li-${taskNumber}`);
   taskList[taskNumber] = "-1";
   list_item.parentNode.removeChild(list_item);
+  localStorage.setItem("taskList_data", JSON.stringify(taskList));
+}
+
+//get taskList from local bucket
+if (localStorage.getItem("taskList_data") === "null") {
+  taskList = [];
+} else {
+  taskList = JSON.parse(localStorage.getItem("taskList_data"));
+  // console.log(localStorage.getItem("taskList_data"));
+  let task_list_ol = document.getElementById("task-list-ol");
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i] != "-1") {
+      let task_list_li = document.createElement("li");
+      task_list_li.id = `task-li-${i}`;
+      task_list_li.innerHTML = `${taskList[i]} <button onclick = "removeTask(${i})">Remove task</button>`;
+      task_list_ol.appendChild(task_list_li);
+    }
+  }
 }
