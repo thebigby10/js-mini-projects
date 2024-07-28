@@ -1,0 +1,112 @@
+body {
+    background-color: #efefef;
+    margin: 0;
+}
+
+.header {
+    /* Flex properties */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /*  design */
+    padding: 0.5em;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    color: #efefef;
+    background-color: #070707;
+}
+
+a > button {
+    margin: 0;
+    background-color: #34d1bf;
+    margin-top: 2.5vh;
+}
+
+.header > h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.product {
+    /* flex properties */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* design */
+    background-color: #3454d1;
+    color: white;
+    margin: 0.5%;
+}
+
+.price-span {
+    margin-right: 10%;
+}
+
+.title {
+    margin-right: auto;
+    font-weight: lighter;
+    font-size: 30px;
+    margin-left: 1em;
+}
+
+.product > button {
+    background-color: #d1345b;
+    margin: 0px;
+    margin-right: 1em;
+}
+
+.product > input {
+    margin: 0px;
+    margin-right: 0.2em;
+}
+
+.footer {
+    text-align: right;
+    margin-right: 1.5em;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.7em;
+}
+
+#cart-text {
+    text-align: right;
+    margin: 0.5em;
+}
+
+#cart-section {
+    margin-left: 3em;
+    font-size: 1.5em;
+    margin-right: 3em;
+}
+
+#cart-section > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 2em;
+    margin-right: 6.9em;
+    font-weight: bold;
+}
+
+#cart-section > div {
+    background-color: #3454d1;
+    padding: 1em;
+    margin: 0.2em;
+    color: white;
+}
+#cart-section > div > button {
+    background-color: #d1345b;
+    color: white;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+}
+
+.title-span {
+    flex-grow: 1;
+}
