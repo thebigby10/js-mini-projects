@@ -16,7 +16,7 @@ if (localStorage.getItem("cart_data") != null) {
       //display the div
       new_element.style.display = "flex";
       // change its data
-      new_element.children[0].innerHTML = `${key} X ${item_data[key][0]}`;
+      new_element.children[0].innerHTML = `${key}`;
       new_element.children[1].innerHTML = `${item_data[key][1] / item_data[key][0]} X ${item_data[key][0]} = ${item_data[key][1]}`;
     }
   }
@@ -30,8 +30,15 @@ console.log(total_item);
 let remove_buttons = document.querySelectorAll("#cart-section>div>button");
 remove_buttons = Array.from(remove_buttons);
 remove_buttons.forEach((element) => {
-  element.addEventListener("click", {
+  element.addEventListener("click", () => {
     //remove from cart logic
+    let element_name = element.parentElement.children[0].innerHTML;
+    console.log(element_name);
+    total_item -= item_data[element_name][0];
+    item_data[element_name] = [0, 0];
+    localStorage.setItem("cart_data", JSON.stringify(item_data));
+    localStorage.setItem("total_item", total_item);
+    element.parentNode.style.display = "none";
   });
 });
 console.log(remove_buttons);

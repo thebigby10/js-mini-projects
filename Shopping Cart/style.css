@@ -85,15 +85,6 @@ a > button {
     justify-content: space-between;
 }
 
-.total-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: 2em;
-    margin-right: 6.9em;
-    font-weight: bold;
-}
-
 #cart-section > div {
     background-color: #3454d1;
     padding: 1em;
