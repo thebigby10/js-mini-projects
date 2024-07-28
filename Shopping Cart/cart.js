@@ -39,6 +39,8 @@ remove_buttons.forEach((element) => {
     localStorage.setItem("cart_data", JSON.stringify(item_data));
     localStorage.setItem("total_item", total_item);
     element.parentNode.style.display = "none";
+    //update cart text
+    document.querySelector("#cart-text").innerHTML = `My Cart(${total_item})`;
   });
 });
 console.log(remove_buttons);
